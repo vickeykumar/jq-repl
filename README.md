@@ -8,7 +8,7 @@ Use command "jq-repl" to start the jq-repl:
 ## Prerequisites
 
 jq-repl requires 
-* jq [](https://github.com/stedolan/jq)
+* [jq](https://github.com/stedolan/jq)
 
 ## Installation
 

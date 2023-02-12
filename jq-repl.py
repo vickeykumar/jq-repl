@@ -7,10 +7,10 @@ if not (platform.system() in ('Windows', 'Microsoft')):
     readline.parse_and_bind("tab: complete")
 
 def main():
-    print "*************************************************************************"
-    print "*                  WELCOME TO JQ-REPL                                   *"
-    print "*               Type :help for help Menu                                *"
-    print "*************************************************************************\n"
+    print "******************************************************"
+    print "*              WELCOME TO JQ-REPL                    *"
+    print "*           Type :help for help Menu                 *"
+    print "******************************************************\n"
     #PrintHelp()
     init()
     prompt = ""

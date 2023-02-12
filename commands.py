@@ -56,13 +56,16 @@ def GetInput(inputstring = ''):
                     print err
             return
     if inputstring[0] in openPar or (inputstring[0] in openPar and inputstring[-1] in closePar) :
-        read_json_block(inputstring)
+        old_json = jsonstring
+        jsonstring = read_json_block(inputstring)
         #print "recieved: ", jsonstring
         err = runRepl()
         if err != '':
-            jsonstring=""
+            jsonstring=old_json
             # not a valid input, fallback
-            print err,
+            print err
+        else:
+            print "Input Json Loaded Successfully"
     elif inputstring != '':
         err = runRepl(inputstring)    #lets try compiling with jq
         if err != '':
@@ -90,14 +93,13 @@ def is_valid_json(string):
     return not stack
 
 def read_json_block(line=''):
-    global jsonstring
     try:
         while not is_valid_json(line):
             line = line + "\n\t" + raw_input().strip()
-        jsonstring = line.strip()
+        return line.strip()
     except Exception,e:
         print "Error: ",str(e)
-
+    return ""
 
 def runRepl(filterstring = '.'):
     global jsonstring
